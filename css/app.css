@@ -72,6 +72,11 @@ h1 {
     transform-style: preserve-3d;
 }
 
+.hover {
+  border: 5px solid white;
+  transition: 0.1s;
+}
+
 .back {
     height: 125px;
     width: 125px;

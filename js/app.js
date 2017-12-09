@@ -96,7 +96,7 @@ $(function() {
     Input: The current card being clicked by user.
     Output: None.
     */
-    currentCard.addClass('back').removeClass('front');
+    currentCard.addClass('back').removeClass('front').removeClass('hover');
     listOpen.push(currentCard.text());
   }
 
@@ -208,10 +208,20 @@ $(function() {
     $(winningMessage).insertAfter('head');
   }
 
-  $(document).on('click', '.button1', function() {
-    // This is the 'Play Again' button on the winning page that restarts the game.
+  function restartGame () {
     location.reload();
-  });
+  }
+
+  $(document).on('click', '.button1', restartGame)
+    // This is the 'Play Again' button on the winning page that restarts the game.
+
+  $(document).on('mouseover', '.front', function() {
+    $(this).addClass('hover');
+  })
+
+  $(document).on('mouseout', '.front', function() {
+    $(this).removeClass('hover');
+  })
 
   $(document).on('click', '.front', function() {
     /*
